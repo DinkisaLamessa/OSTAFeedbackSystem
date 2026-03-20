@@ -1,0 +1,335 @@
+﻿@model List<OstaFeedbackApp.Models.Feedback>
+@using System.Text.Json
+
+@{
+    var feedbackList = Model ?? new List<OstaFeedbackApp.Models.Feedback>();
+    var dataJson = JsonSerializer.Serialize(feedbackList);
+}
+
+<!-- Bootstrap & Chart.js -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f4f6f8;
+        font-family: 'Segoe UI', sans-serif;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+        background: #1e1e2f;
+        color: #f5f5f5;
+    }
+
+    .card-x {
+        border-radius: 12px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .card-x:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+    .kpi {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1e90ff;
+    }
+
+    .topbar {
+        background: #1e90ff;
+        color: #fff;
+        padding: 15px 25px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-soft {
+        border-radius: 25px;
+    }
+
+    table th, table td {
+        vertical-align: middle !important;
+    }
+
+    .filter-container select, .filter-container input {
+        max-width: 200px;
+    }
+
+    /* Responsive – double @@ to escape Razor */
+    @@media (max-width: 768px) {
+        .filter-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+</style>
+
+<div class="container mt-4">
+
+    <!-- HEADER -->
+    <div class="topbar">
+        <div>
+            <h4>📊 OSTA Exhibition Feedback Dashboard</h4>
+            <small>Advanced analytics system</small>
+        </div>
+        <button id="darkToggle" class="btn btn-light btn-sm">🌙 Dark</button>
+    </div>
+
+    <!-- KPI -->
+    <div class="row mb-4" id="kpi"></div>
+
+    <!-- FILTERS -->
+    <div class="card-x mb-4 d-flex gap-3 flex-wrap filter-container align-items-center">
+        <select id="dept" class="form-select">
+            <option value="">All Departments</option>
+            @foreach (var d in feedbackList.Select(x => x.Department).Distinct())
+            {
+                <option>@d</option>
+            }
+        </select>
+
+        <input type="date" id="from" class="form-control" />
+        <input type="date" id="to" class="form-control" />
+
+        <input type="text" id="search" placeholder="Search..." class="form-control" />
+
+        <button onclick="applyFilters()" class="btn btn-primary btn-soft">Apply</button>
+        <button onclick="resetFilters()" class="btn btn-secondary btn-soft">Reset</button>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card-x">
+                <h6>Average Ratings</h6>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-x">
+                <h6>Submission Trend</h6>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-x">
+                <h6>Distribution</h6>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-x">
+                <h6>Rating Count (1–5)</h6>
+                <canvas id="histChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card-x mt-4">
+        <h6>Feedback Records</h6>
+        <table class="table table-hover table-striped">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Dept</th>
+                    <th>Date</th>
+                    <th>Commitment</th>
+                    <th>Transparency</th>
+                    <th>Innovation</th>
+                    <th>Community Impact</th>
+                    <th>Youth Opportunity</th>
+                </tr>
+            </thead>
+            <tbody id="tbl"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const data = @Html.Raw(dataJson);
+    const metrics = ["Commitment","Transparency","Innovation","CommunityImpact","YouthOpportunity"];
+    let filtered = [...data];
+
+    // --- KPI ---
+    function avg(metric){
+        return filtered.length ? filtered.reduce((sum, x) => sum + (x[metric] || 0), 0)/filtered.length : 0;
+    }
+
+    function renderKPI(){
+        const kpiHtml = metrics.map(m=>`
+            <div class="col-md-2 col-6 mb-3">
+                <div class="card-x text-center">
+                    <div>${m}</div>
+                    <div class="kpi">${avg(m).toFixed(1)}</div>
+                </div>
+            </div>
+        `).join('') + `
+            <div class="col-md-2 col-6 mb-3">
+                <div class="card-x text-center">
+                    <div>Total</div>
+                    <div class="kpi">${filtered.length}</div>
+                </div>
+            </div>
+        `;
+        document.getElementById("kpi").innerHTML = kpiHtml;
+    }
+
+    // --- CHARTS ---
+    let barChart, lineChart, pieChart, histChart;
+
+    function renderCharts(){
+        const ctxBar = document.getElementById("barChart").getContext('2d');
+        const ctxLine = document.getElementById("lineChart").getContext('2d');
+        const ctxPie = document.getElementById("pieChart").getContext('2d');
+        const ctxHist = document.getElementById("histChart").getContext('2d');
+
+        // Destroy existing charts to avoid duplicates
+        [barChart,lineChart,pieChart,histChart].forEach(c=>c?.destroy());
+
+        // Bar Chart
+        barChart = new Chart(ctxBar,{
+            type:'bar',
+            data:{
+                labels:metrics,
+                datasets:[{
+                    label:'Average Rating',
+                    data:metrics.map(avg),
+                    backgroundColor:'#1e90ff'
+                }]
+            },
+            options:{responsive:true, plugins:{legend:{display:false}}}
+        });
+
+        // Pie Chart
+        pieChart = new Chart(ctxPie,{
+            type:'pie',
+            data:{
+                labels:metrics,
+                datasets:[{
+                    data:metrics.map(avg),
+                    backgroundColor:['#1e90ff','#00b894','#fdcb6e','#e17055','#6c5ce7']
+                }]
+            },
+            options:{responsive:true}
+        });
+
+        // Line Chart (Trend)
+        const dates = {};
+        filtered.forEach(x=>{
+            const d = new Date(x.CreatedAt).toLocaleDateString();
+            dates[d] = (dates[d]||0)+1;
+        });
+        lineChart = new Chart(ctxLine,{
+            type:'line',
+            data:{
+                labels:Object.keys(dates),
+                datasets:[{
+                    label:'Submissions',
+                    data:Object.values(dates),
+                    borderColor:'#00b894',
+                    backgroundColor:'rgba(0,184,148,0.2)',
+                    tension:0.2,
+                    fill:true
+                }]
+            },
+            options:{responsive:true}
+        });
+
+        // Histogram – aggregated counts for ratings 1–5 across all metrics
+        const ratingValues = [1,2,3,4,5];
+        const aggregatedCounts = ratingValues.map(rating => {
+            return filtered.reduce((total, item) => {
+                return total + metrics.reduce((sum, metric) => sum + (item[metric] === rating ? 1 : 0), 0);
+            }, 0);
+        });
+        histChart = new Chart(ctxHist,{
+            type:'bar',
+            data:{
+                labels:["1","2","3","4","5"],
+                datasets:[{
+                    label:'Rating Count (All Questions)',
+                    data:aggregatedCounts,
+                    backgroundColor:'#fd79a8'
+                }]
+            },
+            options:{responsive:true}
+        });
+    }
+
+    // --- TABLE ---
+    function renderTable(){
+        const search = document.getElementById("search").value.toLowerCase();
+        const rows = filtered.filter(x =>
+            !search || Object.values(x).some(v=>v?.toString().toLowerCase().includes(search))
+        );
+
+        document.getElementById("tbl").innerHTML =
+            rows.map((x,i)=>`
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${x.Department||'-'}</td>
+                    <td>${new Date(x.CreatedAt).toLocaleDateString()}</td>
+                    <td>${x.Commitment}</td>
+                    <td>${x.Transparency}</td>
+                    <td>${x.Innovation}</td>
+                    <td>${x.CommunityImpact}</td>
+                    <td>${x.YouthOpportunity}</td>
+                </tr>
+            `).join('');
+    }
+
+    // --- FILTERS ---
+    function applyFilters(){
+        const dept = document.getElementById("dept").value;
+        const from = document.getElementById("from").value;
+        const to = document.getElementById("to").value;
+
+        filtered = data.filter(x=>{
+            const date = new Date(x.CreatedAt);
+            return (!dept || x.Department===dept) &&
+                   (!from || date >= new Date(from)) &&
+                   (!to || date <= new Date(to));
+        });
+        renderAll();
+    }
+
+    function resetFilters(){
+        document.getElementById("dept").value = '';
+        document.getElementById("from").value = '';
+        document.getElementById("to").value = '';
+        document.getElementById("search").value = '';
+        filtered = [...data];
+        renderAll();
+    }
+
+    // --- DARK MODE ---
+    document.getElementById("darkToggle").addEventListener('click', ()=>{
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    });
+
+    // persist dark mode
+    if(localStorage.getItem('darkMode')==='true') document.body.classList.add('dark-mode');
+
+    function renderAll(){
+        renderKPI();
+        renderCharts();
+        renderTable();
+    }
+
+    renderAll();
+</script>
