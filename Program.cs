@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OstaFeedbackApp.Data;
 
@@ -8,7 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 // DATABASE (PostgreSQL)
 // =====================
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        npgsqlOptions =>
+        {
+            npgsqlOptions.EnableRetryOnFailure(5); // 🔥 retry if DB not ready
+        }));
 
 // =====================
 // IDENTITY (AUTH SYSTEM)
@@ -17,58 +22,76 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 
-    // Optional password settings
+    // Password settings (can tighten later)
     options.Password.RequireDigit = false;
     options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
 })
-.AddRoles<IdentityRole>() // IMPORTANT for roles
+.AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>();
 
 // =====================
-// MVC
+// MVC + Razor Pages
 // =====================
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
 // =====================
-// CREATE ADMIN ROLE + USER
+// AUTO DATABASE MIGRATION
 // =====================
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-
-    string adminEmail = "admin@osta.com";
-    string adminPassword = "Admin@123";
-
-    // Create Admin Role
-    if (!await roleManager.RoleExistsAsync("Admin"))
+    try
     {
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
-    }
+        var context = services.GetRequiredService<AppDbContext>();
+        await context.Database.MigrateAsync(); // 🔥 auto create/update DB
 
-    // Create Admin User
-    var user = await userManager.FindByEmailAsync(adminEmail);
-    if (user == null)
-    {
-        user = new IdentityUser
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+
+        string adminEmail = "admin@osta.com";
+        string adminPassword = "Admin@123";
+
+        // Create Admin Role
+        if (!await roleManager.RoleExistsAsync("Admin"))
         {
-            UserName = adminEmail,
-            Email = adminEmail,
-            EmailConfirmed = true
-        };
+            await roleManager.CreateAsync(new IdentityRole("Admin"));
+        }
 
-        await userManager.CreateAsync(user, adminPassword);
+        // Create Admin User
+        var user = await userManager.FindByEmailAsync(adminEmail);
+        if (user == null)
+        {
+            user = new IdentityUser
+            {
+                UserName = adminEmail,
+                Email = adminEmail,
+                EmailConfirmed = true
+            };
+
+            var result = await userManager.CreateAsync(user, adminPassword);
+
+            if (!result.Succeeded)
+            {
+                throw new Exception("Failed to create admin user: " +
+                    string.Join(", ", result.Errors.Select(e => e.Description)));
+            }
+        }
+
+        // Assign Admin Role
+        if (!await userManager.IsInRoleAsync(user, "Admin"))
+        {
+            await userManager.AddToRoleAsync(user, "Admin");
+        }
     }
-
-    // Assign Admin Role
-    if (!await userManager.IsInRoleAsync(user, "Admin"))
+    catch (Exception ex)
     {
-        await userManager.AddToRoleAsync(user, "Admin");
+        Console.WriteLine("🔥 Startup Error: " + ex.Message);
     }
 }
 
@@ -86,7 +109,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// 🔐 VERY IMPORTANT
+// 🔐 AUTH
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -97,7 +120,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Feedback}/{action=Create}/{id?}");
 
-// Identity pages (login/register)
 app.MapRazorPages();
 
 app.Run();
