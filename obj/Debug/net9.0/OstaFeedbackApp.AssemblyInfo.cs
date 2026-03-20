@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OstaFeedbackApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d93ec432f63ef8608d6f0892c0cf3daf00439458")]
 [assembly: System.Reflection.AssemblyProductAttribute("OstaFeedbackApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OstaFeedbackApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

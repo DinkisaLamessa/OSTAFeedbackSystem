@@ -3,55 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\views\\feedback\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:views\\feedback\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\views\\feedback\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:views\\feedback\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\controllers\\qrcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:controllers\\qrcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\views\\feedback\\qrpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:views\\feedback\\qrpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\views\\feedback\\thankyou.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:views\\feedback\\thankyou.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|c:\\users\\dinko\\source\\repos\\ostafeedbackapp\\ostafeedbackapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BE2089CE-FC2A-6D7E-195A-735C1406DC85}|OstaFeedbackApp.csproj|solutionrelative:ostafeedbackapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,175 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ThankYou.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\ThankYou.cshtml",
-              "RelativeDocumentMoniker": "Views\\Feedback\\ThankYou.cshtml",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\ThankYou.cshtml",
-              "RelativeToolTip": "Views\\Feedback\\ThankYou.cshtml",
-              "ViewState": "AgIAACsAAAAAAAAAAAAYwDMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-19T07:14:54.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAACQAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T06:55:55.161Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T06:55:13.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Feedback\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\Dashboard.cshtml*",
-              "RelativeToolTip": "Views\\Feedback\\Dashboard.cshtml*",
-              "ViewState": "AgIAAD4BAAAAAAAAAAAAAEYBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-19T07:11:59.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Feedback\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\Create.cshtml",
-              "RelativeToolTip": "Views\\Feedback\\Create.cshtml",
-              "ViewState": "AgIAAAQBAAAAAAAAAAAYwBMBAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-19T07:10:52.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAAC0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-20T14:20:27.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Feedback.cs",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Models\\Feedback.cs",
-              "RelativeDocumentMoniker": "Models\\Feedback.cs",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Models\\Feedback.cs",
-              "RelativeToolTip": "Models\\Feedback.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T06:53:35.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FeedbackController.cs",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Controllers\\FeedbackController.cs",
-              "RelativeDocumentMoniker": "Controllers\\FeedbackController.cs",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Controllers\\FeedbackController.cs",
-              "RelativeToolTip": "Controllers\\FeedbackController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAA1wFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T07:09:01.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "QRPage.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\QRPage.cshtml",
-              "RelativeDocumentMoniker": "Views\\Feedback\\QRPage.cshtml",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Views\\Feedback\\QRPage.cshtml",
-              "RelativeToolTip": "Views\\Feedback\\QRPage.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-19T09:05:50.098Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-19T06:52:12.565Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "QRController.cs",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Controllers\\QRController.cs",
-              "RelativeDocumentMoniker": "Controllers\\QRController.cs",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\Controllers\\QRController.cs",
-              "RelativeToolTip": "Controllers\\QRController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T09:03:43.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Microsoft.Common.CurrentVersion.targets",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AgIAAAgVAAAAAAAAAAAcwBUVAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-03-19T07:17:32.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OstaFeedbackApp.csproj",
-              "DocumentMoniker": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\OstaFeedbackApp.csproj",
-              "RelativeDocumentMoniker": "OstaFeedbackApp.csproj",
-              "ToolTip": "C:\\Users\\Dinko\\source\\repos\\OstaFeedbackApp\\OstaFeedbackApp.csproj",
-              "RelativeToolTip": "OstaFeedbackApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-19T06:54:42.178Z",
+              "WhenOpened": "2026-03-20T19:50:49.509Z",
               "EditorCaption": ""
             }
           ]
